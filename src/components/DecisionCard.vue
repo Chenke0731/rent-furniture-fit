@@ -4,13 +4,25 @@ import type { DecisionResult } from '@/engine/types'
 import { assemblyName, categoryName } from '@/engine/evaluate'
 import { STATUS_TEXT, sizeText } from '@/utils/format'
 
-defineProps<{ result: DecisionResult; selectable?: boolean; selected?: boolean; showTape?: boolean }>()
+const props = defineProps<{ result: DecisionResult; selectable?: boolean; selected?: boolean; showTape?: boolean }>()
 const emit = defineEmits<{ (e: 'select'): void; (e: 'expand'): void }>()
 
 const showPassed = ref(false)
 function togglePassed() {
   showPassed.value = !showPassed.value
   if (showPassed.value) emit('expand')
+}
+function copyChecklist() {
+  const lines = [
+    ...props.result.missing.map((m) => `- ${m.text}`),
+    ...props.result.warnings.map((w) => `- ${w.text}`),
+  ]
+  if (!lines.length) return
+  const content = `购买前请向客服或房东确认【${props.result.item.name}】：\n${lines.join('\n')}`
+  uni.setClipboardData({
+    data: content,
+    success: () => uni.showToast({ title: '已复制待确认清单', icon: 'none' }),
+  })
 }
 const pct = (n: number) => `${Math.round(n * 100)}%`
 </script>
@@ -86,7 +98,16 @@ const pct = (n: number) => `${Math.round(n * 100)}%`
       <view class="m-chip">功能 {{ pct(result.score.function) }}</view>
     </view>
 
-    <view class="src muted">来源：{{ result.item.source }}</view>
+    <view class="foot-row">
+      <text class="src muted">来源：{{ result.item.source }}</text>
+      <text
+        v-if="result.missing.length || result.warnings.length"
+        class="copy-btn"
+        @tap="copyChecklist"
+      >
+        复制待确认清单
+      </text>
+    </view>
 
     <button v-if="selectable" class="pick-btn" :class="{ on: selected }" @tap="emit('select')">
       {{ selected ? '✓ 已选定这一款' : '选这一款' }}
@@ -220,9 +241,23 @@ const pct = (n: number) => `${Math.round(n * 100)}%`
   font-weight: 700;
   color: #4a463e;
 }
-.src {
+.foot-row {
   margin-top: 14rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12rpx;
+}
+.src {
   font-size: 22rpx;
+}
+.copy-btn {
+  font-size: 22rpx;
+  font-weight: 800;
+  color: #7a5400;
+  background: #fff5c0;
+  padding: 6rpx 16rpx;
+  border-radius: 999rpx;
 }
 .pick-btn {
   margin-top: 20rpx;
