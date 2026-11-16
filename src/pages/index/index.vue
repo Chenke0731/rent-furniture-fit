@@ -22,33 +22,33 @@ const go = (url: string) => uni.navigateTo({ url })
       <view class="stamp-badge">缺尺寸不瞎猜</view>
     </view>
 
-    <!-- 3 张微旋转家具贴纸预览 -->
+    <!-- 3 张微旋转家具贴纸预览（纯 view + CSS，兼容微信小程序） -->
     <view class="sticker-row">
       <view class="st-card" style="transform: rotate(-2deg)">
-        <svg viewBox="0 0 100 68" class="st-svg">
-          <rect x="10" y="16" width="80" height="10" rx="4" fill="#D9A066" />
-          <rect x="18" y="26" width="8" height="34" rx="2" fill="#2A2825" />
-          <rect x="74" y="26" width="8" height="34" rx="2" fill="#2A2825" />
-        </svg>
+        <view class="ico-box">
+          <view class="desk-top" />
+          <view class="desk-legs"><view class="leg" /><view class="leg" /></view>
+        </view>
         <text class="st-name">书桌</text>
         <text class="muted">核对拉椅空间</text>
       </view>
       <view class="st-card" style="transform: rotate(1.5deg)">
-        <svg viewBox="0 0 100 68" class="st-svg">
-          <rect x="24" y="8" width="52" height="52" rx="4" fill="none" stroke="#2A2825" stroke-width="6" />
-          <line x1="24" y1="26" x2="76" y2="26" stroke="#D9A066" stroke-width="5" />
-          <line x1="24" y1="44" x2="76" y2="44" stroke="#D9A066" stroke-width="5" />
-        </svg>
+        <view class="ico-box">
+          <view class="shelf-frame">
+            <view class="shelf-bar" />
+            <view class="shelf-bar" />
+          </view>
+        </view>
         <text class="st-name">置物架</text>
         <text class="muted">核对限高打孔</text>
       </view>
       <view class="st-card" style="transform: rotate(-1.2deg)">
-        <svg viewBox="0 0 100 68" class="st-svg">
-          <rect x="20" y="12" width="60" height="46" rx="5" fill="#E6C29F" stroke="#2A2825" stroke-width="4" />
-          <line x1="20" y1="35" x2="80" y2="35" stroke="#2A2825" stroke-width="3" />
-          <circle cx="50" cy="24" r="3" fill="#2A2825" />
-          <circle cx="50" cy="46" r="3" fill="#2A2825" />
-        </svg>
+        <view class="ico-box">
+          <view class="cab-box">
+            <view class="cab-drawer"><view class="cab-knob" /></view>
+            <view class="cab-drawer"><view class="cab-knob" /></view>
+          </view>
+        </view>
         <text class="st-name">收纳柜</text>
         <text class="muted">核对过门拆装</text>
       </view>
@@ -138,10 +138,66 @@ const go = (url: string) => uni.navigateTo({ url })
   text-align: center;
   box-shadow: 0 12rpx 28rpx rgba(60, 45, 20, 0.08);
 }
-.st-svg {
-  width: 110rpx;
-  height: 76rpx;
-  filter: drop-shadow(0 6rpx 8rpx rgba(60, 45, 20, 0.12));
+.ico-box {
+  height: 82rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.desk-top {
+  width: 96rpx;
+  height: 14rpx;
+  border-radius: 6rpx;
+  background: #d9a066;
+}
+.desk-legs {
+  width: 78rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.leg {
+  width: 10rpx;
+  height: 44rpx;
+  background: #2a2825;
+  border-radius: 0 0 4rpx 4rpx;
+}
+.shelf-frame {
+  width: 66rpx;
+  height: 66rpx;
+  border: 6rpx solid #2a2825;
+  border-radius: 6rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.shelf-bar {
+  height: 6rpx;
+  background: #d9a066;
+}
+.cab-box {
+  width: 74rpx;
+  height: 62rpx;
+  background: #e6c29f;
+  border: 5rpx solid #2a2825;
+  border-radius: 8rpx;
+  display: flex;
+  flex-direction: column;
+}
+.cab-drawer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cab-drawer:first-child {
+  border-bottom: 4rpx solid #2a2825;
+}
+.cab-knob {
+  width: 12rpx;
+  height: 6rpx;
+  border-radius: 4rpx;
+  background: #2a2825;
 }
 .st-name {
   display: block;

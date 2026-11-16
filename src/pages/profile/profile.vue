@@ -75,24 +75,25 @@ function save() {
       拿卷尺量好<text class="hl">具体位置</text>，只填几平米算不出能不能放
     </view>
 
-    <!-- 手账贴纸式房间平面示意卡 -->
+    <!-- 手账贴纸式房间平面示意卡（纯 view + CSS，兼容微信小程序） -->
     <view class="nb-card tilt-r">
       <view class="tape" />
-      <svg viewBox="0 0 600 200" style="width: 100%; height: 190rpx; display: block">
-        <rect x="20" y="24" width="320" height="156" rx="18" fill="#F7F5EE" stroke="#1A1917" stroke-width="4" />
-        <rect x="32" y="36" width="190" height="62" rx="12" fill="#FFD84D" />
-        <text x="48" y="66" font-size="20" font-weight="900" fill="#1A1917">可用宽 {{ form.spaceWidth ?? '?' }} cm</text>
-        <text x="48" y="88" font-size="15" font-weight="700" fill="#5C4000">扣踢脚线与插座</text>
-        <text x="48" y="132" font-size="17" font-weight="800" fill="#1A1917">
-          前方留空 ≥ {{ form.clearance ?? '?' }} cm（总纵深 {{ form.spaceDepth ?? '?' }} cm）
-        </text>
-        <rect x="370" y="24" width="210" height="156" rx="18" fill="#F7F5EE" stroke="#1A1917" stroke-width="4" />
-        <text x="396" y="66" font-size="18" font-weight="800" fill="#6E685C">最窄门框净宽</text>
-        <text x="396" y="122" font-size="42" font-weight="900" fill="#1A1917">{{ form.doorWidth ?? '?' }} cm</text>
-        <text x="396" y="156" font-size="16" font-weight="700" fill="#6E685C">
-          限高：{{ form.spaceHeight ? `${form.spaceHeight} cm` : '不限' }}
-        </text>
-      </svg>
+      <view class="plan-box">
+        <view class="plan-room">
+          <view class="plan-furn">
+            <text class="pf-main">可用宽 {{ form.spaceWidth ?? '?' }} cm</text>
+            <text class="pf-sub">扣踢脚线与插座</text>
+          </view>
+          <view class="plan-clear">
+            前方留空 ≥ {{ form.clearance ?? '?' }} cm（总纵深 {{ form.spaceDepth ?? '?' }} cm）
+          </view>
+        </view>
+        <view class="plan-door">
+          <text class="pd-lbl">最窄门框净宽</text>
+          <text class="pd-val">{{ form.doorWidth ?? '?' }} cm</text>
+          <text class="pd-sub">限高：{{ form.spaceHeight ? `${form.spaceHeight} cm` : '不限' }}</text>
+        </view>
+      </view>
 
       <NumField v-model="form.spaceWidth" label="放置位置可用宽度" unit="cm" required :tip="TIPS.width" />
       <NumField v-model="form.spaceDepth" label="放置纵深（墙到对面床或柜）" unit="cm" required :tip="TIPS.depth" />
@@ -155,6 +156,66 @@ function save() {
   font-weight: 900;
   line-height: 1.3;
   margin-bottom: 28rpx;
+}
+.plan-box {
+  display: flex;
+  gap: 16rpx;
+  margin-bottom: 18rpx;
+}
+.plan-room {
+  flex: 1.35;
+  background: #f7f5ee;
+  border: 4rpx solid #1a1917;
+  border-radius: 20rpx;
+  padding: 14rpx;
+}
+.plan-furn {
+  background: #ffd84d;
+  border-radius: 12rpx;
+  padding: 10rpx 14rpx;
+}
+.pf-main {
+  display: block;
+  font-size: 24rpx;
+  font-weight: 900;
+  color: #1a1917;
+}
+.pf-sub {
+  display: block;
+  font-size: 20rpx;
+  font-weight: 700;
+  color: #5c4000;
+}
+.plan-clear {
+  margin-top: 12rpx;
+  font-size: 20rpx;
+  font-weight: 800;
+  color: #1a1917;
+}
+.plan-door {
+  flex: 1;
+  background: #f7f5ee;
+  border: 4rpx solid #1a1917;
+  border-radius: 20rpx;
+  padding: 14rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.pd-lbl {
+  font-size: 20rpx;
+  font-weight: 800;
+  color: #6e685c;
+}
+.pd-val {
+  font-size: 38rpx;
+  font-weight: 900;
+  color: #1a1917;
+}
+.pd-sub {
+  font-size: 20rpx;
+  font-weight: 700;
+  color: #6e685c;
 }
 .sub-lbl {
   font-size: 26rpx;
