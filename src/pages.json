@@ -1,0 +1,17 @@
+{
+  "pages": [
+    { "path": "pages/index/index", "style": { "navigationBarTitleText": "租房家具适配本" } },
+    { "path": "pages/profile/profile", "style": { "navigationBarTitleText": "量角落 · 租房档案" } },
+    { "path": "pages/products/products", "style": { "navigationBarTitleText": "挑候选家具" } },
+    { "path": "pages/manual/manual", "style": { "navigationBarTitleText": "手动贴入商品" } },
+    { "path": "pages/result/result", "style": { "navigationBarTitleText": "适配审核单" } },
+    { "path": "pages/experiment/index", "style": { "navigationBarTitleText": "实验模式" } },
+    { "path": "pages/experiment/task", "style": { "navigationBarTitleText": "选购任务" } }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "租房家具适配本",
+    "navigationBarBackgroundColor": "#F7F5EE",
+    "backgroundColor": "#F7F5EE"
+  }
+}

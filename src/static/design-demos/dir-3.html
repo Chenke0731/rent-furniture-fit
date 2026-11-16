@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>方向三 · 粗野主义仓储核验单 (WAREHOUSE SPEC TAG)</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@700&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#181818;color:#F5F3EC;font-family:"Noto Sans SC",sans-serif;padding:28px 36px 44px}
+.head{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #F5F3EC;padding-bottom:12px;margin-bottom:26px}
+.head small{font:700 12px "Space Mono",monospace;color:#FF521B;letter-spacing:.12em}
+.head h1{font:900 28px/1.15 "Noto Sans SC";margin-top:4px}
+.head p{font:400 13px/1.5 "Noto Sans SC";color:#CCC;max-width:540px;text-align:right}
+.phones{display:flex;gap:34px;justify-content:center;align-items:flex-start;flex-wrap:wrap}
+.col{display:flex;flex-direction:column;align-items:center}
+.cap{font:700 12px "Space Mono","Noto Sans SC",monospace;background:#FF521B;color:#FFF;padding:3px 10px;margin-bottom:10px}
+.ph{
+  width:366px;height:760px;background:#F4F1E8;color:#0D0D0D;
+  border:2px solid #0D0D0D;display:flex;flex-direction:column;overflow:hidden;
+}
+.tag-top{
+  background:#0D0D0D;color:#F4F1E8;padding:10px 14px;
+  display:flex;justify-content:space-between;align-items:center;
+  font:700 11px "Space Mono",monospace;
+}
+.big-banner{
+  padding:12px 14px;border-bottom:2px solid #0D0D0D;
+  display:flex;justify-content:space-between;align-items:baseline;
+}
+.big-banner h2{font:900 26px/1 "Noto Sans SC";letter-spacing:-.02em}
+.big-banner b{font:700 28px/1 "Archivo Narrow",sans-serif;color:#FF521B}
+.tbl{width:100%;border-collapse:collapse}
+.tbl th,.tbl td{
+  border-bottom:1.5px solid #0D0D0D;border-right:1.5px solid #0D0D0D;
+  padding:8px 10px;text-align:left;font-size:12px;
+}
+.tbl tr td:last-child,.tbl tr th:last-child{border-right:none}
+.tbl th{font:700 10px "Space Mono","Noto Sans SC",monospace;color:#555;background:#EAE6DA}
+.num{font:700 20px/1.1 "Archivo Narrow",sans-serif}
+.spec-item{border-bottom:2px solid #0D0D0D;padding:10px 14px}
+.spec-row{display:flex;justify-content:space-between;align-items:center}
+.spec-row h3{font:900 15px "Noto Sans SC"}
+.seal{font:700 11px "Space Mono","Noto Sans SC",monospace;padding:2px 6px;border:1.5px solid #0D0D0D}
+.seal.pass{background:#00A344;color:#FFF}
+.seal.hold{background:#FFB800;color:#0D0D0D}
+.seal.rej{background:#FF2E00;color:#FFF}
+.seal.null{background:#D5D1C5;color:#0D0D0D}
+.formula{
+  margin-top:6px;font:700 12px "Space Mono","Noto Sans SC",monospace;
+  background:#E6E2D6;padding:4px 8px;border-left:3px solid #0D0D0D;
+}
+.formula.err{background:#FFDAD2;border-left-color:#FF2E00;color:#9E1C00}
+.spec-desc{margin-top:5px;font:500 12px/1.45 "Noto Sans SC";color:#222}
+.bar-btn{
+  margin-top:auto;height:50px;background:#FF521B;color:#FFF;border:none;border-top:2px solid #0D0D0D;
+  font:900 15px "Noto Sans SC";letter-spacing:.06em;cursor:pointer;
+}
+</style>
+</head>
+<body>
+<div class="head">
+  <div>
+    <small>DIRECTION 03 / SWISS BRUTALIST WAREHOUSE SPEC SHEET</small>
+    <h1>方向三：粗野主义仓储核验单（物流规格吊牌风）</h1>
+  </div>
+  <p>Form 来自平板包装家具箱体上的仓储物流检验单：零圆角、通栏黑线表格、直接写出尺寸不等式（如 120cm &gt; 110cm），一屏看清全部硬约束。</p>
+</div>
+
+<div class="phones">
+  <!-- 屏 1：空间约束规格单 -->
+  <div class="col">
+    <div class="cap">01 空间约束检验单</div>
+    <div class="ph">
+      <div class="tag-top"><span>SPEC-SHEET // ROOM-01</span><span>UNIT: CM / RMB</span></div>
+      <div class="big-banner"><h2>出租屋硬约束单</h2><b>110×150</b></div>
+      <table class="tbl">
+        <tr><th>CHECK CODE</th><th>约束项</th><th>实测上限</th><th>测量说明</th></tr>
+        <tr><td><b>C-01</b></td><td>放置可用净宽</td><td class="num">110 cm</td><td>已扣踢脚线</td></tr>
+        <tr><td><b>C-02</b></td><td>墙面至对面障碍</td><td class="num">150 cm</td><td>含家具+留空</td></tr>
+        <tr><td><b>C-03</b></td><td>前方通行留空</td><td class="num">≥ 60 cm</td><td>拉椅/开抽屉</td></tr>
+        <tr><td><b>C-04</b></td><td>最窄门框净宽</td><td class="num">80 cm</td><td>核对外包装</td></tr>
+        <tr><td><b>C-05</b></td><td>墙面打孔限制</td><td><b>FORBIDDEN</b></td><td>房东禁止打孔</td></tr>
+        <tr><td><b>C-06</b></td><td>含运费总预算</td><td class="num">≤ ¥600</td><td>单件上限</td></tr>
+        <tr><td><b>C-07</b></td><td>预计剩余租期</td><td><b>6–12 个月</b></td><td>考虑拆装搬迁</td></tr>
+      </table>
+      <div class="spec-item" style="background:#EAE6DA">
+        <div class="spec-row"><h3>偏好权重（仅用于通过项排序）</h3><span>STAGE 02</span></div>
+        <div class="spec-desc">总成本 3 / 拆装搬迁 3 / 功能尺寸 3（不覆盖硬约束）</div>
+      </div>
+      <button class="bar-btn">执行两阶段核验 →</button>
+    </div>
+  </div>
+
+  <!-- 屏 2：不等式核验单 -->
+  <div class="col">
+    <div class="cap">02 算式级可解释决策单</div>
+    <div class="ph">
+      <div class="tag-top"><span>AUDIT REPORT // 4 ITEMS</span><span>PRIORITY: CONFLICT &gt; NULL</span></div>
+      <div class="big-banner"><h2>入户核验结论单</h2><b>2 PASS / 2 OUT</b></div>
+
+      <div class="spec-item">
+        <div class="spec-row"><h3>#1 示例书桌 B（100×50×75）</h3><span class="seal pass">PASS 适配 · 86.4</span></div>
+        <div class="formula">宽100≤110(余10) | 前余100≥拉椅70 | 包装15≤门80</div>
+        <div class="spec-desc">含运费 ¥429 ≤ ¥600；免打孔；工具拆装 18kg。</div>
+      </div>
+
+      <div class="spec-item">
+        <div class="spec-row"><h3>#2 示例折叠书桌 C（100×60）</h3><span class="seal hold">HOLD 有条件适配</span></div>
+        <div class="formula">宽100≤110 | 前余90≥拉椅75 | 包装=NULL(拆装)</div>
+        <div class="spec-desc">免工具折叠 15kg 最易搬家；<b>买前必问：包装最短边 ≤ 80cm？</b></div>
+      </div>
+
+      <div class="spec-item">
+        <div class="spec-row"><h3>示例书桌 A（120×60×75）</h3><span class="seal rej">REJECT 冲突</span></div>
+        <div class="formula err">C-01 冲突：商品宽 120 cm &gt; 可用宽 110 cm（超 10 cm）</div>
+        <div class="spec-desc">触发硬约束直接排除，不进入第二阶段偏好打分。</div>
+      </div>
+
+      <div class="spec-item">
+        <div class="spec-row"><h3>示例整装书桌 D（¥329）</h3><span class="seal null">NULL 信息不足</span></div>
+        <div class="formula">C-04 未知：整装不可拆 + 包装尺寸=NULL</div>
+        <div class="spec-desc">无法核验能否进 80cm 门；严格拒绝因低价判为适配。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 屏 3：实验与数据字典 -->
+  <div class="col">
+    <div class="cap">03 规则核验与对照实验单</div>
+    <div class="ph">
+      <div class="tag-top"><span>EXPERIMENT &amp; CSV IMPORT</span><span>N = 40–60</span></div>
+      <div class="big-banner"><h2>对照实验记录单</h2><b>GROUP 1–4</b></div>
+      <table class="tbl">
+        <tr><th>被试</th><th>组别</th><th>任务</th><th>条件</th><th>所选状态</th><th>耗时</th></tr>
+        <tr><td>#01</td><td>G1</td><td>T1</td><td>A 列表</td><td><b style="color:#FF2E00">CONFLICT</b></td><td>48.2s</td></tr>
+        <tr><td>#01</td><td>G1</td><td>T2</td><td>B 决策卡</td><td><b style="color:#00A344">FIT</b></td><td>31.5s</td></tr>
+        <tr><td>#02</td><td>G2</td><td>T1</td><td>B 决策卡</td><td><b style="color:#00A344">FIT</b></td><td>29.4s</td></tr>
+        <tr><td>#02</td><td>G2</td><td>T2</td><td>A 列表</td><td><b>NULL</b></td><td>52.0s</td></tr>
+      </table>
+      <div class="spec-item">
+        <div class="spec-row"><h3>手动补录 / CSV 批量替换</h3><span class="seal hold">100–150 ITEMS</span></div>
+        <div class="spec-desc">提供标准 CSV 模板，数据组核验商品后一行命令替换示例库；用户端支持随时手动补录缺项商品。</div>
+      </div>
+      <button class="bar-btn">导出 CSV 原始实验表</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+id,name,category,price,extraFee,width,depth,height,packageMinSide,operationDepth,needsDrill,assembly,weight,source,checkedAt
+D1,示例书桌 A（120 宽）,desk,499,30,120,60,75,14,70,no,tool,22,示例数据，非真实商品,
+D3,示例折叠书桌 C（未披露包装尺寸）,desk,459,0,100,60,74,,75,no,toolfree,15,示例数据，非真实商品,
+S1,示例壁挂置物架 A,shelf,159,0,60,30,170,10,,yes,tool,9,示例数据，非真实商品,
+C1,示例整装收纳柜 A,cabinet,289,50,75,40,100,,35,no,assembled,30,示例数据，非真实商品,

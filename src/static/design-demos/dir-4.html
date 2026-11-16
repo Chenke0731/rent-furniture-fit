@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>候选五 · 小红书手账贴纸本 (Product Notebook)</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:#E5E1D8;
+  font-family:"Noto Sans SC",sans-serif;color:#1A1917;
+  padding:28px 36px 44px;
+}
+.head{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  border-bottom:2px dashed #B8B2A4;padding-bottom:14px;margin-bottom:26px;
+}
+.pill-top{
+  display:inline-flex;align-items:center;height:28px;padding:0 14px;
+  border-radius:14px;background:#1A1917;color:#FFF;font:700 12px "Noto Sans SC";
+}
+.head h1{font:900 28px/1.2 "Noto Sans SC";margin-top:6px}
+.head p{font:500 13px/1.55 "Noto Sans SC";color:#4A463E;max-width:540px;text-align:right}
+.phones{display:flex;gap:34px;justify-content:center;align-items:flex-start;flex-wrap:wrap}
+.col{display:flex;flex-direction:column;align-items:center}
+.cap{
+  font:800 12px "Noto Sans SC";background:#FFF;color:#1A1917;
+  padding:4px 14px;border-radius:99px;margin-bottom:12px;
+  box-shadow:0 4px 12px rgba(60,45,20,.10);
+}
+.ph{
+  width:366px;height:760px;
+  background-color:#F7F5EE;
+  background-image:radial-gradient(#D5CFC2 1.3px,transparent 1.3px);
+  background-size:18px 18px;
+  border-radius:36px;overflow:hidden;position:relative;
+  box-shadow:0 20px 44px rgba(50,38,18,.16),0 0 0 8px #FFF;
+  padding:18px;display:flex;flex-direction:column;
+}
+.top-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.top-left{font:700 13px "Noto Sans SC";color:#6E685C}
+.pill{
+  display:inline-flex;align-items:center;height:28px;padding:0 13px;
+  border-radius:99px;background:#1A1917;color:#FFF;font:700 12px "Noto Sans SC";
+}
+.pill.light{background:#FFF;color:#1A1917;box-shadow:0 3px 8px rgba(60,45,20,.08)}
+.big-hero{margin:4px 0 12px}
+.big-num{
+  font:900 54px/0.95 "Figtree",sans-serif;letter-spacing:-2px;color:#1A1917;
+}
+.big-hl{
+  font:900 26px/1.25 "Noto Sans SC";
+  background:linear-gradient(transparent 58%,#FFD84D 58% 92%,transparent 92%);
+}
+.stamp-rot{
+  position:absolute;right:20px;top:64px;transform:rotate(-5deg);
+  background:#FFF5C0;border:2px solid #946800;color:#7A5400;
+  font:800 11px "Noto Sans SC";padding:4px 10px;border-radius:8px;
+  box-shadow:0 4px 10px rgba(60,45,20,.10);
+}
+
+/* 贴纸白卡片 */
+.nb-card{
+  background:#FFF;border-radius:24px;padding:16px;position:relative;
+  box-shadow:0 14px 32px rgba(60,45,20,.09),0 2px 6px rgba(60,45,20,.05);
+  margin-bottom:12px;
+}
+.nb-card.tilt{transform:rotate(-1deg)}
+.tape{
+  position:absolute;left:50%;top:-10px;transform:translateX(-50%) rotate(-4deg);
+  width:88px;height:22px;background:rgba(255,212,71,.62);border-radius:2px;
+}
+.audit-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.audit-head h3{font:900 18px "Noto Sans SC"}
+.audit-head p{font:500 12px "Noto Sans SC";color:#7A7468;margin-top:2px}
+.ring{
+  width:62px;height:62px;border-radius:50%;border:5px solid #E9A800;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;
+}
+.ring.warn{border-color:#F59E0B}
+.ring b{font:900 22px/1 "Figtree",sans-serif;color:#1A1917}
+.ring span{font:700 10px "Noto Sans SC";color:#7A7468;margin-top:2px}
+
+.chk-row{
+  display:flex;align-items:center;gap:10px;padding:7px 0;
+  border-bottom:1.5px dashed #E6E1D6;font:500 13px "Noto Sans SC";
+}
+.chk-row:last-child{border-bottom:none}
+.ck{
+  width:22px;height:22px;border-radius:6px;background:#1A1917;color:#FFF;
+  display:inline-flex;align-items:center;justify-content:center;
+  font:900 13px "Figtree",sans-serif;flex-shrink:0;
+}
+.ck.y{background:#FFD84D;color:#5C4000}
+.ck.r{background:#EF4444;color:#FFF}
+.ck.g{background:#D6D1C4;color:#4A463E}
+
+.stat-pair{display:flex;gap:10px;margin-top:auto}
+.stat-y{
+  flex:1.15;background:#FFD84D;border-radius:18px;padding:12px 14px;color:#422D00;
+}
+.stat-g{
+  flex:1;background:#EFECE3;border:2px solid #DFD9CA;border-radius:18px;padding:12px 14px;color:#4A463E;
+}
+.stat-pair b{font:900 28px/1 "Figtree",sans-serif;display:block}
+.stat-pair span{font:700 12px "Noto Sans SC";display:block;margin-top:4px}
+
+/* 家具贴纸格 */
+.sticker-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:8px 0}
+.st-item{
+  background:#FFF;border-radius:18px;padding:12px;text-align:center;
+  box-shadow:0 8px 20px rgba(60,45,20,.07);position:relative;
+}
+.st-item svg{
+  width:90px;height:66px;
+  filter:drop-shadow(0 6px 8px rgba(60,45,20,.14));
+}
+.st-item b{display:block;font:800 13px "Noto Sans SC";margin-top:4px}
+.st-item small{display:block;font:600 11px "Figtree","Noto Sans SC";color:#7A7468}
+</style>
+</head>
+<body>
+<div class="head">
+  <div>
+    <span class="pill-top">租房家具适配本</span>
+    <h1>租房家具适配与比较手账本</h1>
+  </div>
+  <p>
+    量好房间角落净宽、拉椅距离与最窄门框，把候选家具贴进本子逐项核对。
+  </p>
+</div>
+
+<div class="phones">
+  <!-- 屏幕 1：手账贴纸本建档与候选贴纸 -->
+  <div class="col">
+    <div class="cap">01 租房角落手账与家具贴纸池</div>
+    <div class="ph">
+      <div class="top-bar">
+        <span class="top-left">我的出租屋本子 ⌄</span>
+        <span class="pill">第 1 步 · 量角落</span>
+      </div>
+      <div class="big-hero">
+        <span class="big-num">110×150</span>
+        <span style="font:900 18px 'Noto Sans SC';margin-left:6px">cm 墙角</span>
+      </div>
+      <div class="stamp-rot">禁打孔 · 门宽 80cm</div>
+
+      <div style="display:flex;gap:6px;margin-bottom:10px">
+        <span class="pill">书桌 (4)</span>
+        <span class="pill light">置物架 (3)</span>
+        <span class="pill light">收纳柜 (3)</span>
+      </div>
+
+      <div class="sticker-grid">
+        <div class="st-item" style="transform:rotate(-1.5deg)">
+          <svg viewBox="0 0 100 70">
+            <rect x="12" y="16" width="76" height="12" rx="3" fill="#D9A066" stroke="#fff" stroke-width="3"/>
+            <rect x="18" y="28" width="8" height="34" fill="#333"/>
+            <rect x="74" y="28" width="8" height="34" fill="#333"/>
+          </svg>
+          <b>示例书桌 B</b>
+          <small>100×50cm · ¥429</small>
+        </div>
+        <div class="st-item" style="transform:rotate(1.8deg)">
+          <svg viewBox="0 0 100 70">
+            <rect x="14" y="16" width="72" height="10" rx="3" fill="#E6C29F" stroke="#fff" stroke-width="3"/>
+            <line x1="24" y1="26" x2="40" y2="60" stroke="#444" stroke-width="6" stroke-linecap="round"/>
+            <line x1="76" y1="26" x2="60" y2="60" stroke="#444" stroke-width="6" stroke-linecap="round"/>
+          </svg>
+          <b>折叠书桌 C</b>
+          <small>100×60cm · ¥459</small>
+        </div>
+      </div>
+
+      <div class="nb-card tilt" style="margin-top:auto">
+        <div class="tape"></div>
+        <div style="font:900 22px/1.25 'Noto Sans SC'">
+          把看中的 4 款书桌<br>贴进本子逐项挑错<span style="color:#E9A800">！</span>
+        </div>
+        <div style="font:500 12px 'Noto Sans SC';color:#6E685C;margin-top:6px">
+          只填房间几平米没用，要核对墙角净宽、拉椅距离和外包装能不能进门。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 屏幕 2：审核单式决策卡（圆环过线章 + 黑方框打勾行） -->
+  <div class="col">
+    <div class="cap">02 「审核单」式四态决策卡</div>
+    <div class="ph">
+      <div class="top-bar">
+        <span class="pill">第 2 步 · 审核单</span>
+        <span class="top-left">优先排除硬冲突</span>
+      </div>
+      <div style="margin:2px 0 12px">
+        <span class="big-hl">硬条件全过</span><span style="font:900 24px 'Noto Sans SC'">，才算能买</span>
+      </div>
+
+      <div class="nb-card">
+        <div class="audit-head">
+          <div>
+            <h3>审核单 · 示例书桌 B</h3>
+            <p>100×50×75cm · 含运费 429 元</p>
+          </div>
+          <div class="ring">
+            <b>86</b>
+            <span>适配</span>
+          </div>
+        </div>
+        <div class="chk-row"><span class="ck">✓</span>宽度 100cm ≤ 墙角 110cm（余 10cm）</div>
+        <div class="chk-row"><span class="ck">✓</span>前方剩 100cm ≥ 拉椅需 70cm</div>
+        <div class="chk-row"><span class="ck">✓</span>包装窄边 15cm ≤ 房门 80cm</div>
+        <div class="chk-row"><span class="ck">✓</span>免打孔 · 工具拆装（18kg）</div>
+        <div class="chk-row"><span class="ck y">!</span>同款折叠桌 C：未标包装尺寸，买前问客服</div>
+      </div>
+
+      <div class="nb-card" style="padding:12px 16px">
+        <div class="chk-row"><span class="ck r">×</span><b>书桌 A（120宽）冲突：</b>超宽 10cm 放不下</div>
+        <div class="chk-row"><span class="ck g">?</span><b>整装桌 D（329元）信息不足：</b>缺包装尺寸</div>
+      </div>
+
+      <div class="stat-pair">
+        <div class="stat-y">
+          <b>2 款</b>
+          <span>过了硬条件可买</span>
+        </div>
+        <div class="stat-g">
+          <b>2 款</b>
+          <span>没过，已标原因</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 屏幕 3：手账贴纸风实验与手动补录 -->
+  <div class="col">
+    <div class="cap">03 手动贴入与对照实验本</div>
+    <div class="ph">
+      <div class="top-bar">
+        <span class="pill">实验本 · P#06</span>
+        <span class="top-left">第 2 组 · 拉丁方平衡</span>
+      </div>
+      <div style="margin:2px 0 12px">
+        <span class="big-hl">34.8 秒</span><span style="font:900 22px 'Noto Sans SC'"> 选对不踩坑</span>
+      </div>
+
+      <div class="nb-card">
+        <div class="tape"></div>
+        <div class="audit-head">
+          <div>
+            <h3>手动贴入新家具</h3>
+            <p>详情页没写的尺寸直接留空</p>
+          </div>
+          <div class="ring warn">
+            <b>NULL</b>
+            <span>防误判</span>
+          </div>
+        </div>
+        <div class="chk-row"><span class="ck">✓</span>自动识别缺失的包装尺寸或抽屉空间</div>
+        <div class="chk-row"><span class="ck">✓</span>绝不因价格便宜强行判为「适配」</div>
+        <div class="chk-row"><span class="ck y">!</span>一键生成「找客服追问清单」</div>
+      </div>
+
+      <div class="stat-pair">
+        <div class="stat-y">
+          <b>0%</b>
+          <span>B组误选冲突率</span>
+        </div>
+        <div class="stat-g">
+          <b>CSV</b>
+          <span>一键导出 14 字段</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
